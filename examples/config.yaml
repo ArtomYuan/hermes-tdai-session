@@ -1,0 +1,28 @@
+# Example: route Hermes model calls through TDAI MemoryProxy
+#
+# Setup
+# 1. Clone this repository to ~/.hermes/plugins/hermes-tdai-session/
+# 2. hermes plugins enable hermes-tdai-session
+# 3. Merge the provider block below into ~/.hermes/config.yaml
+# 4. Export your TDAI user key in ~/.hermes/.env as TDAI_USER_KEY
+# 5. Restart the gateway or start a new session
+
+model:
+  base_url: http://<proxy-host>:8096/hermes/<space-id>/v1
+  default: <model-name>
+  provider: custom
+  api_mode: chat_completions
+
+providers:
+  custom:
+    api: "http://<proxy-host>:8096/hermes/<space-id>/v1"
+    transport: chat_completions
+    key_env: TDAI_USER_KEY
+    models:
+      - <model-name>
+    extra_headers:
+      x-team-id: "<team-id>"
+      x-agent-id: "<agent-id>"
+      x-task-id: "default"
+      # Do NOT set x-conversation-id here. A static value would take
+      # precedence over the per-session body field injected by this plugin.

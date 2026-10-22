@@ -1,0 +1,6 @@
+name: hermes-tdai-session
+version: "0.1.0"
+description: "Inject per-session metadata.session_id into LLM requests for TDAI MemoryProxy, so each Hermes topic maps to its own proxy session"
+kind: standalone
+middleware:
+  - llm_request

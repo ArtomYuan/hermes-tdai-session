@@ -13,7 +13,7 @@ TDAI_SESSION_FIELD
     Field name under ``metadata``. Default: ``session_id``
 
 Copyright (C) 2026 ArtomYuan
-SPDX-License-Identifier: GPL-3.0-or-later
+SPDX-License-Identifier: Apache-2.0
 """
 
 from __future__ import annotations
